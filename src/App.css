@@ -6,6 +6,7 @@
   background-color: black;
   text-align: center;
   color: white;
+  position: sticky;
 }
 
 .search{
@@ -61,9 +62,10 @@
     transform: scale(0.9);
     transition:all .3s ease-in-out;
   }
-  .author{
+  .author_publish{
     font-size: 13px;
     display: flex;
+    color: grey;
     justify-content: space-between;
     margin-bottom: 10px;
   }
@@ -72,13 +74,13 @@
   height:230px;
   width:100%;
   }
-  h3{
+  h4{
     padding: 7px;
   }
-
   p{
   display:flex;
   padding:0 15px;
+  font-size:13px ;
   }
   .more__btn{
     outline: none;
@@ -94,3 +96,64 @@
     color: black;
     cursor: pointer;
   }
+
+  .wrapper,h3,p {
+    -webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+@-webkit-keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+
+  h1 {
+    -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+            animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+  }
+
+@-webkit-keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
