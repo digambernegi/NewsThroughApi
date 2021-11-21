@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import './App.css';
+import axios from "axios";
 
 function App() {
   const[input,setInput] = useState('Technology'); //default input 
@@ -19,29 +20,33 @@ function App() {
     return string?.length > n ? string.substr(0, n - 1) + "..." : string;
   }
 
-  //run input state variable once 
+  //fetch specific news as user input +
+  //re-render input state variable everytime it changes 
   useEffect(() => {
+    async function getNews(){
+     const res= await axios.get(`https://newsapi.org/v2/everything?q=${input}&apiKey=88b5ed72a3e543f9a116a1633f92885e`)
+    console.log(res.data)
+    setArticle(res.data.articles)
+     }
       getNews();
   }, [input])
 
-  //fetch specific news via category entered in input field
-  function getNews(){
-    fetch(`https://newsapi.org/v2/everything?q=${input}&apiKey=88b5ed72a3e543f9a116a1633f92885e`)
+    /*  fetch(`https://newsapi.org/v2/everything?q=${input}&apiKey=88b5ed72a3e543f9a116a1633f92885e`)
     .then((response)=> response.json())
     .then((data)=>{
       setArticle(data.articles);
     })
     .catch((error) => {
       console.log(error)
-    })
-  }
+    }) */
+  
 
   return (
     <div className="app">
       <h1>News Hunt</h1>
       <div className="search">
       <input type="text" onChange={(e) =>{readValue(e.target.value)}} placeholder="Enter category here..."/>
-      <button onClick={getNews}>Submit</button>
+      <button >Submit</button>
     </div>
     
    <div className="wrapper">
@@ -58,8 +63,8 @@ function App() {
            <p className="article__Time">{articles.publishedAt}</p>
            </div>
            <p>{truncate(articles.content,200)}</p>
-           <a href={articles.url}>
-           <button className="more__btn">Read More</button>
+           <a className="more" href={articles.url}>
+           <button className="more__btn">Read More..</button>
            </a>
          </div>
        )

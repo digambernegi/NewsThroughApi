@@ -52,7 +52,7 @@
   flex-direction:column;
   border:2px solid white;
   text-align:center;
-  height: 100%;
+  height: 95%;
   background-color: white;
   color: black;
   transition:all .3s ease-in-out;
@@ -96,7 +96,9 @@
     color: black;
     cursor: pointer;
   }
-
+.more{
+  margin-top: 10px;
+}
   .wrapper,h3,p {
     -webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
     animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
